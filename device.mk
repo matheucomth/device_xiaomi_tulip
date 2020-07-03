@@ -393,6 +393,7 @@ PRODUCT_COPY_FILES += \
 
 # Xiaomi
 PRODUCT_PACKAGES += \
+    XiaomiDoze \
     XiaomiParts
 
 # Inherit the proprietary files
