@@ -30,6 +30,6 @@ TARGET_BOOT_ANIMATION_RES := 1080
 
 # Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="tulip-user 9 PKQ1.180904.001 V10.3.2.0.PEKMIXM release-keys"
+    PRIVATE_BUILD_DESC="barbet-user 11 RD2A.211001.002 7644766 release-keys"
 
-BUILD_FINGERPRINT := xiaomi/tulip/tulip:9/PKQ1.180904.001/V10.3.2.0.PEKMIXM:user/release-keys
+BUILD_FINGERPRINT := google/barbet/barbet:11/RD2A.211001.002/7644766:user/release-keys
