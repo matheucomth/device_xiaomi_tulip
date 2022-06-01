@@ -121,7 +121,6 @@ vendor.display.disable_skip_validate=1
 vendor.display.enable_default_color_mode=1
 vendor.display.idle_time=32767
 vendor.gralloc.enable_fb_ubwc=1
-vendor.display.disable_scaler=0
 debug.force_no_blanking=true
 
 # Graphics
@@ -163,6 +162,9 @@ persist.vendor.radio.rat_on=combine
 persist.vendor.radio.sib16_support=1
 ro.telephony.default_network=22,22
 ro.vendor.use_data_netmgrd=true
+
+# ScalarConfig
+vendor.display.disable_scaler=1
 
 # Sensor
 ro.vendor.sdk.sensors.gestures=false
