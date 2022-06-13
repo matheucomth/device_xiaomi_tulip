@@ -128,7 +128,9 @@ ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
 # Graphics
 debug.cpurend.vsync=false 
-debug.sdm.support_writeback=0 
+debug.sdm.support_writeback=0
+ro.hardware.vulkan=sdm660
+ro.hardware.egl=adreno 
 
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
