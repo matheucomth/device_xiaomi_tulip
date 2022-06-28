@@ -19,6 +19,9 @@ ro.netflix.bsp_rev=Q660-13149-1
 # Pre-Rendering
 ro.vendor.perf.scroll_opt=true
 
+# Skia
+renderthread.skia.reduceopstasksplitting=true
+
 # Radio
 DEVICE_PROVISIONED=1
 persist.sys.fflag.override.settings_network_and_internet_v2=true

@@ -185,8 +185,5 @@ ro.vendor.sensors.mot_detect=true
 ro.soc.manufacturer=QTI
 ro.soc.model=SDM660
 
-# Skia
-renderthread.skia.reduceopstasksplitting=true
-
 # Time
 persist.vendor.delta_time.enable=true
