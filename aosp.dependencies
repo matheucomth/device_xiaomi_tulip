@@ -10,23 +10,5 @@
     "target_path": "vendor/xiaomi/tulip",
     "remote"     : "github",
     "revision"   : "12"
- },
- {
-    "repository" : "ArrowOS/android_hardware_qcom_display",
-    "target_path": "hardware/qcom-caf/msm8998/display",
-    "remote"     : "github",
-    "revision"   : "arrow-12.1-caf-msm8998"
- },
- {
-    "repository" : "ArrowOS/android_hardware_qcom_media",
-    "target_path": "hardware/qcom-caf/msm8998/media",
-    "remote"     : "github",
-    "revision"   : "arrow-12.1-caf-msm8998"
- },
- {
-    "repository" : "ArrowOS/android_hardware_qcom_audio",
-    "target_path": "hardware/qcom-caf/msm8998/audio",
-    "remote"     : "github",
-    "revision"   : "arrow-12.1-caf-msm8998"
  }
 ]
