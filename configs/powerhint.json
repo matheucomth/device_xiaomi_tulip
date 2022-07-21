@@ -111,7 +111,7 @@
       "Path": "/sys/class/kgsl/kgsl-3d0/idle_timer",
       "Values": [
         "10000",
-        "64"
+        "70"
       ],
       "ResetOnInit": true
     },
@@ -134,6 +134,15 @@
       ],
       "ResetOnInit": true
     },
+	{
+	  "Name": "PowerHALAudioState",
+	  "Path": "vendor.powerhal.audio",
+	  "Values": [
+		"AUDIO_STREAMING_LOW_LATENCY",
+		""
+	],
+	"Type": "Property"
+	},
     {
       "Name": "PowerHALMainState",
       "Path": "vendor.powerhal.state",
@@ -341,6 +350,12 @@
       "Node": "PowerHALAudioState",
       "Duration": 0,
       "Value": "AUDIO_STREAMING_LOW_LATENCY"
+    },
+	{
+      "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
+      "Node": "PMQoSCpuDmaLatency",
+      "Duration": 0,
+      "Value": "0x0000002b"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
