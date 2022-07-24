@@ -5,7 +5,6 @@
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
       "Values": [
         "9999999",
-        "1401600",
         "1113600"
       ],
       "DefaultIndex": 0,
@@ -16,7 +15,6 @@
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
       "Values": [
         "9999999",
-        "1401600",
         "1113600",
         "633600"
       ],
@@ -37,7 +35,6 @@
       "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq",
       "Values": [
         "9999999",
-        "1401600",
         "1113600"
       ],
       "ResetOnInit": true
@@ -46,11 +43,8 @@
       "Name": "GPUMaxFreq",
       "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
       "Values": [
-        "647000000",
-        "588000000",
-        "465000000",
-        "370000000",
-        "266000000"
+        "430000000",
+        "370000000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -59,23 +53,9 @@
       "Name": "GPUMinFreq",
       "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
       "Values": [
-        "647000000",
-        "588000000",
-        "465000000",
+        "430000000",
         "370000000",
-        "266000000",
-        "160000000"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "GPUBusMinFreq",
-      "Path": "/sys/class/devfreq/soc:qcom,gpubw/min_freq",
-      "Values": [
-        "6881",
-        "5931",
-        "3879",
-        "0"
+        "266000000"
       ],
       "ResetOnInit": true
     },
@@ -97,30 +77,39 @@
       ],
       "ResetOnInit": true
     },
-	{
-		"Name": "EnergyAware",
-		"Path": "/proc/sys/kernel/sched_energy_aware",
-		"Values": [
-			"0",
-			"1"
-		]
-		"ResetOnInit": true
-	},
     {
       "Name": "GPUIdleTimer",
       "Path": "/sys/class/kgsl/kgsl-3d0/idle_timer",
       "Values": [
         "10000",
-        "70"
+        "80"
       ],
       "ResetOnInit": true
     },
     {
-      "Name": "EnergyAware",
-      "Path": "/proc/sys/kernel/sched_energy_aware",
+      "Name": "TASchedtuneBoost",
+      "Path": "/dev/stune/top-app/schedtune.boost",
+      "Values": [
+        "5",
+        "1"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUBWHystTriggerCount",
+      "Path": "/sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count",
       "Values": [
         "0",
-        "1"
+        "3"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUBWHistMemory",
+      "Path": "/sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory",
+      "Values": [
+        "0",
+        "20"
       ],
       "ResetOnInit": true
     },
@@ -129,35 +118,25 @@
       "Path": "/sys/class/devfreq/soc:qcom,cpubw/min_freq",
       "Values": [
         "6881",
-        "3879",
+        "2597",
         "762"
       ],
       "ResetOnInit": true
     },
-	{
-	  "Name": "PowerHALAudioState",
-	  "Path": "vendor.powerhal.audio",
-	  "Values": [
-		"AUDIO_STREAMING_LOW_LATENCY",
-		""
-	],
-	"Type": "Property"
-	},
+    {
+      "Name": "PMQoSCpuDmaLatency",
+      "Path": "/dev/cpu_dma_latency",
+      "Values": [
+        "43",
+        "100"
+      ],
+      "HoldFd": true
+    },
     {
       "Name": "PowerHALMainState",
       "Path": "vendor.powerhal.state",
       "Values": [
-        "CAMERA_STREAMING",
         "SUSTAINED_PERFORMANCE",
-        ""
-      ],
-      "Type": "Property"
-    },
-    {
-      "Name": "PowerHALAudioState",
-      "Path": "vendor.powerhal.audio",
-      "Values": [
-        "AUDIO_STREAMING_LOW_LATENCY",
         ""
       ],
       "Type": "Property"
@@ -168,28 +147,6 @@
       "Values": [
         "EXPENSIVE_RENDERING",
         ""
-      ],
-      "Type": "Property"
-    },
-    {
-      "Name": "Dex2oatThreads",
-      "Path": "vendor.powerhal.dalvik.vm.dex2oat-threads",
-      "Values": [
-          "1",
-          "2",
-          "4",
-          "6"
-      ],
-      "Type": "Property"
-    },
-    {
-      "Name": "Dex2oatCPUSet",
-      "Path": "vendor.powerhal.dalvik.vm.dex2oat-cpu-set",
-      "Values": [
-          "2,3",
-          "0,1,2,3",
-          "0,1,2,3,4,5",
-          "0,1,2,3,4,5,6,7"
       ],
       "Type": "Property"
     }
@@ -217,7 +174,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "465000000"
+      "Value": "370000000"
     },
     {
       "PowerHint": "INTERACTION",
@@ -225,137 +182,101 @@
       "Duration": 0,
       "Value": "1113600"
     },
-	{
-	  "PowerHint": "LAUNCH",
-	  "Node": "EnergyAware",
-	  "Duration": 2500,
-	  "Value": "0"
-	},
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "TASchedtuneBoost",
+      "Duration": 0,
+      "Value": "5"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "CPUBWHystTriggerCount",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "CPUBWHistMemory",
+      "Duration": 0,
+      "Value": "0"
+    },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
       "Duration": 0,
-      "Value": "3879"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "EnergyAware",
-      "Duration": 2500,
-      "Value": "0"
+      "Value": "2597"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigClusterMaxFreq",
-      "Duration": 1500,
+      "Duration": 5000,
       "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 1500,
+      "Duration": 5000,
       "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 1500,
+      "Duration": 5000,
       "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "PMQoSCpuDmaLatency",
+      "Duration": 5000,
+      "Value": "43"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUBWHystTriggerCount",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUBWHistMemory",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "CPUBWMinFreq",
-      "Duration": 1500,
+      "Duration": 5000,
       "Value": "6881"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUForceClkOn",
-      "Duration": 2500,
+      "Duration": 5000,
       "Value": "1"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUForceRailOn",
-      "Duration": 2500,
+      "Duration": 5000,
       "Value": "1"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUIdleTimer",
-      "Duration": 2500,
+      "Duration": 5000,
       "Value": "10000"
     },
     {
-      "PowerHint": "CAMERA_LAUNCH",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_LAUNCH",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 1000,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_LAUNCH",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_LAUNCH",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 1000,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 1000,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 1000,
-      "Value": "9999999"
-    },
-    {
       "PowerHint": "AUDIO_LAUNCH",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 0,
-      "Value": "1401600"
-    },
-    {
-      "PowerHint": "AUDIO_LAUNCH",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 0,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
-      "Node": "PowerHALAudioState",
-      "Duration": 0,
-      "Value": "AUDIO_STREAMING_LOW_LATENCY"
-    },
-	{
-      "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 0,
-      "Value": "0x0000002b"
+      "Value": "43"
+    },
+    {
+      "PowerHint": "AUDIO_STREAMING",
+      "Node": "PMQoSCpuDmaLatency",
+      "Duration": 2000,
+      "Value": "43"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -367,85 +288,13 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "647000000"
+      "Value": "370000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "647000000"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_LIGHT",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "4"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_LIGHT",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "0,1,2,3,4,5"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_MODERATE",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "2"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_MODERATE",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "0,1,2,3"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_SEVERE",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_SEVERE",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "2,3"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_CRITICAL",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_CRITICAL",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "2,3"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_EMERGENCY",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "THERMAL_fps-therm-monitor_EMERGENCY",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "2,3"
-    },
-    {
-      "PowerHint": "Flipendo",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 0,
-      "Value": "1401600"
-    },
-    {
-      "PowerHint": "Flipendo",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 0,
-      "Value": "1401600"
+      "Value": "430000000"
     }
   ]
 }
