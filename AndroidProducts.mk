@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_tulip.mk
+    $(LOCAL_DIR)/cherish_tulip.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_tulip-user \
-    aosp_tulip-userdebug \
-    aosp_tulip-eng
+    cherish_tulip-user \
+    cherish_tulip-userdebug \
+    cherish_tulip-eng
